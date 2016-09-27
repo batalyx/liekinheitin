@@ -45,6 +45,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.pökät?.position.x = x
             }
             break
+        case 126:
+            let p = self.poppa as? SKSpriteNode
+            p?.color = (p?.color.withAlphaComponent(0.16))!
+        case 125:
+            let p = self.poppa as? SKSpriteNode
+            p?.color = (p?.color.withAlphaComponent(0.0))!
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
