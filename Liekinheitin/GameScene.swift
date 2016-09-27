@@ -14,6 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var pökät : SKNode?
     private var poppa : SKNode?
     private var pökäAlku: CGPoint?
+    private var auts: SKAction?
 
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -22,17 +23,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.pökäAlku = self.pökät?.position
 
         self.poppa = self.childNode(withName: "//poppa")
+
+        let hyp = SKAction.moveBy(x: -50, y: 200, duration: TimeInterval(0.1))
+        let takas = SKAction.move(to: pökäAlku!, duration: TimeInterval(1))
+        self.auts = SKAction.sequence([hyp, takas])
+
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        let hyp = SKAction.moveBy(x: -50, y: 200, duration: TimeInterval(0.1))
-        let takas = SKAction.move(to: pökäAlku!, duration: TimeInterval(1))
-        let auts = SKAction.sequence([hyp, takas])
-
         if contact.bodyA.categoryBitMask == 0x02 {        // A = pökät, B = poppa
-            contact.bodyB.node?.run(auts)
+            contact.bodyB.node?.run(auts!)
         } else if contact.bodyB.categoryBitMask == 0x02 { // A = poppa, B = pökät
-            contact.bodyA.node?.run(auts)
+            contact.bodyA.node?.run(auts!)
         }
     }
 
