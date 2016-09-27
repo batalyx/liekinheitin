@@ -14,6 +14,8 @@
 		08C878E71D9A3FC7008E3D89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C878E61D9A3FC7008E3D89 /* ViewController.swift */; };
 		08C878E91D9A3FC7008E3D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C878E81D9A3FC7008E3D89 /* Assets.xcassets */; };
 		08C878EC1D9A3FC7008E3D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C878EA1D9A3FC7008E3D89 /* Main.storyboard */; };
+		08C878F51D9A40A3008E3D89 /* Liekki.sks in Resources */ = {isa = PBXBuildFile; fileRef = 08C878F31D9A40A3008E3D89 /* Liekki.sks */; };
+		08C878F61D9A40A3008E3D89 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 08C878F41D9A40A3008E3D89 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		08C878E81D9A3FC7008E3D89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08C878EB1D9A3FC7008E3D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08C878ED1D9A3FC7008E3D89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08C878F31D9A40A3008E3D89 /* Liekki.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Liekki.sks; path = ../Liekki.sks; sourceTree = "<group>"; };
+		08C878F41D9A40A3008E3D89 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 		08C878D21D9A3FC6008E3D89 = {
 			isa = PBXGroup;
 			children = (
+				08C878F41D9A40A3008E3D89 /* spark.png */,
 				08C878DD1D9A3FC7008E3D89 /* Liekinheitin */,
 				08C878DC1D9A3FC7008E3D89 /* Products */,
 			);
@@ -58,6 +63,7 @@
 		08C878DD1D9A3FC7008E3D89 /* Liekinheitin */ = {
 			isa = PBXGroup;
 			children = (
+				08C878F31D9A40A3008E3D89 /* Liekki.sks */,
 				08C878DE1D9A3FC7008E3D89 /* AppDelegate.swift */,
 				08C878E01D9A3FC7008E3D89 /* GameScene.sks */,
 				08C878E21D9A3FC7008E3D89 /* Actions.sks */,
@@ -130,9 +136,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				08C878E11D9A3FC7008E3D89 /* GameScene.sks in Resources */,
+				08C878F61D9A40A3008E3D89 /* spark.png in Resources */,
 				08C878E91D9A3FC7008E3D89 /* Assets.xcassets in Resources */,
 				08C878E31D9A3FC7008E3D89 /* Actions.sks in Resources */,
 				08C878EC1D9A3FC7008E3D89 /* Main.storyboard in Resources */,
+				08C878F51D9A40A3008E3D89 /* Liekki.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
