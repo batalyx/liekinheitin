@@ -12,7 +12,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var pökät : SKNode?
-    private var poppa : SKNode?
+    private var poppa : SKSpriteNode?
     private var pökäAlku: CGPoint?
     private var auts: SKAction?
 
@@ -22,7 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.pökät = self.childNode(withName: "//pökät")
         self.pökäAlku = self.pökät?.position
 
-        self.poppa = self.childNode(withName: "//poppa")
+        self.poppa = self.childNode(withName: "//poppa") as? SKSpriteNode
 
         let hyp = SKAction.moveBy(x: -50, y: 200, duration: TimeInterval(0.1))
         let takas = SKAction.move(to: pökäAlku!, duration: TimeInterval(1))
@@ -31,10 +31,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if contact.bodyA.categoryBitMask == 0x02 {        // A = pökät, B = poppa
-            contact.bodyB.node?.run(auts!)
-        } else if contact.bodyB.categoryBitMask == 0x02 { // A = poppa, B = pökät
-            contact.bodyA.node?.run(auts!)
+        if contact.bodyA.categoryBitMask == 0x02 {        // B = pökät, A = poppa
+            self.pökät?.run(auts!)
+        } else if contact.bodyB.categoryBitMask == 0x02 { // B = poppa, A = pökät
+            self.pökät?.run(auts!)
         }
     }
 
@@ -48,11 +48,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             break
         case 126:
-            let p = self.poppa as? SKSpriteNode
-            p?.color = (p?.color.withAlphaComponent(0.16))!
+            if let näkyvä = self.poppa?.color.withAlphaComponent(0.16) {
+                self.poppa?.color = näkyvä
+            }
         case 125:
-            let p = self.poppa as? SKSpriteNode
-            p?.color = (p?.color.withAlphaComponent(0.0))!
+            if let läpinäkyvä = self.poppa?.color.withAlphaComponent(0.0) {
+                self.poppa?.color = läpinäkyvä
+            }
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
