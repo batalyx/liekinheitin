@@ -11,15 +11,15 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    private var label : SKNode?
+    private var pökät : SKNode?
     private var poppa : SKNode?
     private var pökäAlku: CGPoint?
 
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
 
-        self.label = self.childNode(withName: "//pökät")
-        self.pökäAlku = self.label?.position
+        self.pökät = self.childNode(withName: "//pökät")
+        self.pökäAlku = self.pökät?.position
 
         self.poppa = self.childNode(withName: "//poppa")
     }
@@ -39,10 +39,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 124:
-            if var x = self.label?.position.x {
+            if var x = self.pökät?.position.x {
                 x += 3
                 if x > 10 { x = -220 }
-                self.label?.position.x = x
+                self.pökät?.position.x = x
             }
             break
         default:
